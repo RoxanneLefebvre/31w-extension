@@ -34,14 +34,18 @@ function rlc_enqueue(){
         plugin_dir_url(__file__) . "js/carrousel.js",
         array(),
         $version_js,
-        false  
+        true  
     );
 };
 
 add_action('wp_enqueue_scripts', 'rlc_enqueue');
 
 function genere_boite(){
-    $contenu="<div class='carrousel'>Carrousel</div>";
+    $contenu="
+    <button class='btn_modal'>modal</button>
+    <div class='carrousel'>
+    <button class='btn_close'>X</div>
+    ";
     return $contenu;
 };
 
