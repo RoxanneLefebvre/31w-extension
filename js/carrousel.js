@@ -1,6 +1,12 @@
 (function(){
     
     console.log("carrousel");
+    /**
+     * init de variable
+     */
+    let index = 0;
+    let dernierIndex = -1;
+
 
 /**
 * les elements du carrousel
@@ -32,10 +38,25 @@ function ajouter_img_carrousel(elmImg){
     _elCarrousel__figure__img.setAttribute('src', elmImg.getAttribute("src"));
     _elCarrousel__figure__img.classList.add('carrousel__figure__img');
     _elCarrousel__figure.appendChild(_elCarrousel__figure__img)
+    _elCarrousel__figure__img.dataset.index = index;
+    //index++;
 }
 
 function ajouter_radio_carrousel(){
+    let _elCarrousel__form__radio = document.createElement('input');
+    _elCarrousel__form__radio.setAttribute('name', 'carrousel__form__radio');
+    _elCarrousel__form__radio.setAttribute('class', 'carrousel__form__radio');
+    _elCarrousel__form__radio.setAttribute('type', 'radio');
+    _elCarrousel__form__radio.dataset.index = index;
+    index++;
+    _elCarrousel__form.appendChild(_elCarrousel__form__radio);
 
+    _elCarrousel__form__radio.addEventListener('click', function(){
+        console.log(this.dataset.index);
+        _elCarrousel__figure.children[this.dataset.index].classList.add("carrousel__figure__img--activer");
+        //_elCarrousel__figure.children[this.dataset.index].classList.add('.carrousel__figure__img--activer');
+        console.log(_elCarrousel__figure);
+    })
 }
 
 /**
