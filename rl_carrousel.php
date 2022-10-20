@@ -44,7 +44,12 @@ function genere_boite(){
     $contenu="
     <button class='btn_modal'>modal</button>
     <div class='carrousel'>
-    <button class='btn_close'>X</div>
+        <button class='btn_close'>X</button>
+        <button class='btn_fleche btn_fleche--gauche'><</button>
+        <button class='btn_fleche btn_fleche--droite'>></button>
+        <figure class='carrousel__figure'></figure>
+        <form class='carrousel__form'></form>
+    </div>
     ";
     return $contenu;
 };

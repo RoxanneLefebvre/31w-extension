@@ -30,13 +30,16 @@ for(const elmImg of _elGalerieImg) {
     console.log(elmImg.getAttribute('src'));
     
     ajouter_img_carrousel(elmImg)
-    ajouter_radio_carrousel()
+    ajouter_radio_carrousel();
+    /** ecouteur sur les images de la galerie */
     elmImg.addEventListener('mousedown', function(){
-        
-        console.log(this.dataset.index);
-        _elCarrousel.classList.add("carrousel--ouvrir");
+
         _elCarrousel__figure.children[this.dataset.index].classList.add("carrousel__figure__img--activer");
+        _elCarrousel.classList.add("carrousel--ouvrir");
+
+        _elCarrousel__form.children[this.dataset.index].checked = true;
         dernierIndex= this.dataset.index;
+
     });
 }
 
