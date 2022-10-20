@@ -28,12 +28,21 @@
 
 for(const elmImg of _elGalerieImg) {
     console.log(elmImg.getAttribute('src'));
+    
     ajouter_img_carrousel(elmImg)
     ajouter_radio_carrousel()
+    elmImg.addEventListener('mousedown', function(){
+        
+        console.log(this.dataset.index);
+        _elCarrousel.classList.add("carrousel--ouvrir");
+        _elCarrousel__figure.children[this.dataset.index].classList.add("carrousel__figure__img--activer");
+        dernierIndex= this.dataset.index;
+    });
 }
 
 function ajouter_img_carrousel(elmImg){
     //elmImg represent une image de la galerie
+    elmImg.dataset.index = index;
     let _elCarrousel__figure__img = document.createElement("img");
     _elCarrousel__figure__img.setAttribute('src', elmImg.getAttribute("src"));
     _elCarrousel__figure__img.classList.add('carrousel__figure__img');
