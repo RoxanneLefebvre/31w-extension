@@ -53,8 +53,18 @@ function ajouter_radio_carrousel(){
 
     _elCarrousel__form__radio.addEventListener('click', function(){
         console.log(this.dataset.index);
+
+        if(dernierIndex != -1){
+            _elCarrousel__figure.children[dernierIndex].classList.remove("carrousel__figure__img--activer");
+
+        }
         _elCarrousel__figure.children[this.dataset.index].classList.add("carrousel__figure__img--activer");
-        //_elCarrousel__figure.children[this.dataset.index].classList.add('.carrousel__figure__img--activer');
+        dernierIndex= this.dataset.index;
+
+
+
+
+
         console.log(_elCarrousel__figure);
     })
 }
