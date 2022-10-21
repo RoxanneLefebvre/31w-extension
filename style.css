@@ -66,7 +66,7 @@
 .carrousel img {
   width: 100%;
   height: 100%;
-}/*# sourceMappingURL=style.css.map */
+}
 
 .btn_fleche {
   display: flex;
@@ -80,8 +80,8 @@
   height: 2rem;
   z-index: 3;
 }
+
 .btn_fleche--gauche {
-  
   left: 0;
   top: 350px;
   margin: 20px;
@@ -89,12 +89,12 @@
   height: 2rem;
   z-index: 3;
 }
+
 .btn_fleche--droite {
-  
   right: 0;
   top: 350px;
   margin: 20px;
   width: 2rem;
   height: 2rem;
   z-index: 3;
-}
+}/*# sourceMappingURL=style.css.map */

@@ -72,3 +72,35 @@
    width: 100%;
    height: 100%;
 }
+
+
+.btn_fleche {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 350px;
+    margin: 20px;
+    width: 2rem;
+    height: 2rem;
+    z-index: 3;
+  }
+  .btn_fleche--gauche {
+    
+    left: 0;
+    top: 350px;
+    margin: 20px;
+    width: 2rem;
+    height: 2rem;
+    z-index: 3;
+  }
+  .btn_fleche--droite {
+    
+    right: 0;
+    top: 350px;
+    margin: 20px;
+    width: 2rem;
+    height: 2rem;
+    z-index: 3;
+  }

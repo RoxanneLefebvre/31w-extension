@@ -18,6 +18,8 @@
     let _elCarrousel__form = document.querySelector(".carrousel__form");
     let _elGalerie = document.querySelector(".galerie");
     let _elGalerieImg = document.querySelectorAll(".galerie figure img");
+    let btn_fleche_gauche = document.querySelector(".btn_fleche--gauche");
+    let btn_fleche_droite = document.querySelector(".btn_fleche--droite");
 
 
 
@@ -31,6 +33,7 @@ for(const elmImg of _elGalerieImg) {
     
     ajouter_img_carrousel(elmImg)
     ajouter_radio_carrousel();
+    ajouter_fleche_carrousel();
     /** ecouteur sur les images de la galerie */
     elmImg.addEventListener('mousedown', function(){
 
@@ -71,13 +74,13 @@ function ajouter_radio_carrousel(){
 
         }
         _elCarrousel__figure.children[this.dataset.index].classList.add("carrousel__figure__img--activer");
-        dernierIndex= this.dataset.index;
+        dernierIndex = this.dataset.index;
 
 
 
 
 
-        console.log(_elCarrousel__figure);
+        
     })
 }
 
@@ -94,7 +97,21 @@ _elBtn_close.addEventListener('click', function(){
 
 });
 
+function ajouter_fleche_carrousel(){
+
+    btn_fleche_droite.addEventListener('click', function(){
+        console.log("hello droit");
+        
+        console.log(_elCarrousel__figure);
+
+          
+        })
+};
 
 
+btn_fleche_gauche.addEventListener('click', function(){
+    console.log("hello gauche");
+
+})
 
 })();
