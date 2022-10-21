@@ -5,6 +5,7 @@
      * init de variable
      */
     let index = 0;
+    indexFleche=0;
     let dernierIndex = -1;
 
 
@@ -20,6 +21,7 @@
     let _elGalerieImg = document.querySelectorAll(".galerie figure img");
     let btn_fleche_gauche = document.querySelector(".btn_fleche--gauche");
     let btn_fleche_droite = document.querySelector(".btn_fleche--droite");
+    console.log(btn_fleche_droite);
 
 
 
@@ -33,7 +35,7 @@ for(const elmImg of _elGalerieImg) {
     
     ajouter_img_carrousel(elmImg)
     ajouter_radio_carrousel();
-    ajouter_fleche_carrousel();
+    
     /** ecouteur sur les images de la galerie */
     elmImg.addEventListener('mousedown', function(){
 
@@ -44,6 +46,13 @@ for(const elmImg of _elGalerieImg) {
         dernierIndex= this.dataset.index;
 
     });
+
+    
+
+
+
+
+
 }
 
 function ajouter_img_carrousel(elmImg){
@@ -76,10 +85,6 @@ function ajouter_radio_carrousel(){
         _elCarrousel__figure.children[this.dataset.index].classList.add("carrousel__figure__img--activer");
         dernierIndex = this.dataset.index;
 
-
-
-
-
         
     })
 }
@@ -98,19 +103,39 @@ _elBtn_close.addEventListener('click', function(){
 });
 
 function ajouter_fleche_carrousel(){
-
-    btn_fleche_droite.addEventListener('click', function(){
-        console.log("hello droit");
-        
-        console.log(_elCarrousel__figure);
-
-          
-        })
+    btn_fleche_droite.dataset.indexFleche = indexFleche;
+    console.log(indexFleche);
+    
 };
+
+btn_fleche_droite.addEventListener('click', function(){
+    ajouter_fleche_carrousel();
+    
+    if(dernierIndex != -1){
+        _elCarrousel__figure.children[dernierIndex].classList.remove("carrousel__figure__img--activer");
+        
+    }
+    
+    if(this.dataset.indexFleche < _elCarrousel__figure.children.length){
+       _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
+        indexFleche++;
+        dernierIndex = this.dataset.indexFleche;
+    }else {
+        console.log("gegege");
+        this.dataset.indexFleche = 0;
+        console.log(this.dataset.indexFleche);
+            _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
+            indexFleche++;
+            
+        }
+
+      
+})
 
 
 btn_fleche_gauche.addEventListener('click', function(){
     console.log("hello gauche");
+    
 
 })
 
