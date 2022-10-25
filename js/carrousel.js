@@ -99,23 +99,26 @@ _elBtn_close.addEventListener('click', function(){
 
 });
 
-function ajouter_fleche_carrousel(){
-    btn_fleche_droite.dataset.indexFleche = indexFleche;
-    btn_fleche_gauche.dataset.indexFleche = indexFleche-1;
-    //console.log(indexFleche);
+// function ajouter_fleche_carrousel(){
+//     btn_fleche_droite.dataset.indexFleche = indexFleche;
+//     btn_fleche_gauche.dataset.indexFleche = indexFleche-1;
+//     //console.log(indexFleche);
     
-};
+// };
 
 btn_fleche_droite.addEventListener('click', function(){
-    indexFleche++;
-    btn_fleche_droite.dataset.indexFleche = indexFleche;
-    
-    if(dernierIndex != -1){
+let test = document.querySelectorAll('[name="carrousel__form__radio"]')
+indexFleche++;
+btn_fleche_droite.dataset.indexFleche = indexFleche;
+console.log(test[this.dataset.indexFleche])
+
+if(dernierIndex != -1){
         _elCarrousel__figure.children[dernierIndex].classList.remove("carrousel__figure__img--activer");
         
     }
     
     if(this.dataset.indexFleche < _elCarrousel__figure.children.length){
+        test[this.dataset.indexFleche].checked=true;
         
        _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
         dernierIndex = this.dataset.indexFleche;
@@ -127,6 +130,7 @@ btn_fleche_droite.addEventListener('click', function(){
             _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
             
             console.log(this.dataset.indexFleche);
+            test[this.dataset.indexFleche].checked=true;
         }
 
       
@@ -134,29 +138,31 @@ btn_fleche_droite.addEventListener('click', function(){
 
 
 btn_fleche_gauche.addEventListener('click', function(){
-    //console.log("hello gauche");
-    
+    let test = document.querySelectorAll('[name="carrousel__form__radio"]')
     btn_fleche_gauche.dataset.indexFleche = indexFleche-1;
+    console.log(test[this.dataset.indexFleche])
     
     if(dernierIndex != -1){
         _elCarrousel__figure.children[dernierIndex].classList.remove("carrousel__figure__img--activer");
     }
-
-        if (this.dataset.indexFleche <= _elCarrousel__figure.children.length-1){
-            console.log("hello");
-            _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
-            console.log(this.dataset.indexFleche);
+    console.log(this.dataset.indexFleche);
+    
+    if ((this.dataset.indexFleche < _elCarrousel__figure.children.length) &&(this.dataset.indexFleche !=-1)){
+        test[this.dataset.indexFleche].checked=true;
+        console.log("hello");
+        _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
+        
             dernierIndex = this.dataset.indexFleche;
             indexFleche--;
 
         }else {
             console.log("else");
-            
+            this.dataset.indexFleche = _elCarrousel__figure.children.length-1;
+            indexFleche = _elCarrousel__figure.children.length-1;
             console.log(this.dataset.indexFleche);
                 _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
-                
                 dernierIndex = this.dataset.indexFleche;
-                
+                test[this.dataset.indexFleche].checked=true;
             }
         
 
