@@ -104,6 +104,7 @@ _elBtn_close.addEventListener('click', function(){
 
 function ajouter_fleche_carrousel(){
     btn_fleche_droite.dataset.indexFleche = indexFleche;
+    btn_fleche_gauche.dataset.indexFleche = indexFleche;
     console.log(indexFleche);
     
 };
@@ -135,6 +136,25 @@ btn_fleche_droite.addEventListener('click', function(){
 
 btn_fleche_gauche.addEventListener('click', function(){
     console.log("hello gauche");
+    ajouter_fleche_carrousel();
+    
+    if(dernierIndex != -1){
+        _elCarrousel__figure.children[dernierIndex].classList.remove("carrousel__figure__img--activer");
+        
+    }
+    
+    if(this.dataset.indexFleche < _elCarrousel__figure.children.length){
+       _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
+        indexFleche--;
+        dernierIndex = this.dataset.indexFleche;
+    }else {
+        console.log("gegege");
+        this.dataset.indexFleche = 0;
+        console.log(this.dataset.indexFleche);
+            _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
+            indexFleche--;
+            
+        }
     
 
 })
