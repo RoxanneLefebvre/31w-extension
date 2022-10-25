@@ -83,7 +83,7 @@
 
 .btn_fleche--gauche {
   left: 0;
-  top: 350px;
+  top: 275px;
   margin: 20px;
   width: 2rem;
   height: 2rem;
@@ -92,7 +92,7 @@
 
 .btn_fleche--droite {
   right: 0;
-  top: 350px;
+  top: 275px;
   margin: 20px;
   width: 2rem;
   height: 2rem;

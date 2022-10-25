@@ -13,7 +13,7 @@
 * les elements du carrousel
 */
     let _elCarrousel = document.querySelector(".carrousel");
-    let _elBtn_modal = document.querySelector(".btn_modal");
+    
     let _elBtn_close = document.querySelector(".btn_close");
     let _elCarrousel__figure = document.querySelector(".carrousel__figure");
     let _elCarrousel__form = document.querySelector(".carrousel__form");
@@ -21,7 +21,7 @@
     let _elGalerieImg = document.querySelectorAll(".galerie figure img");
     let btn_fleche_gauche = document.querySelector(".btn_fleche--gauche");
     let btn_fleche_droite = document.querySelector(".btn_fleche--droite");
-    console.log(btn_fleche_droite);
+    //console.log(btn_fleche_droite);
 
 
 
@@ -31,7 +31,7 @@
 */
 
 for(const elmImg of _elGalerieImg) {
-    console.log(elmImg.getAttribute('src'));
+    //console.log(elmImg.getAttribute('src'));
     
     ajouter_img_carrousel(elmImg)
     ajouter_radio_carrousel();
@@ -76,7 +76,7 @@ function ajouter_radio_carrousel(){
     _elCarrousel__form.appendChild(_elCarrousel__form__radio);
 
     _elCarrousel__form__radio.addEventListener('click', function(){
-        console.log(this.dataset.index);
+        //console.log(this.dataset.index);
 
         if(dernierIndex != -1){
             _elCarrousel__figure.children[dernierIndex].classList.remove("carrousel__figure__img--activer");
@@ -92,10 +92,7 @@ function ajouter_radio_carrousel(){
 /**
  * code pour ouvrir et fermer le modal
  */
-_elBtn_modal.addEventListener('click', function(){
-    _elCarrousel.classList.add("carrousel--ouvrir");
 
-})
 
 _elBtn_close.addEventListener('click', function(){
     _elCarrousel.classList.remove("carrousel--ouvrir");
@@ -104,13 +101,14 @@ _elBtn_close.addEventListener('click', function(){
 
 function ajouter_fleche_carrousel(){
     btn_fleche_droite.dataset.indexFleche = indexFleche;
-    btn_fleche_gauche.dataset.indexFleche = indexFleche;
-    console.log(indexFleche);
+    btn_fleche_gauche.dataset.indexFleche = indexFleche-1;
+    //console.log(indexFleche);
     
 };
 
 btn_fleche_droite.addEventListener('click', function(){
-    ajouter_fleche_carrousel();
+    indexFleche++;
+    btn_fleche_droite.dataset.indexFleche = indexFleche;
     
     if(dernierIndex != -1){
         _elCarrousel__figure.children[dernierIndex].classList.remove("carrousel__figure__img--activer");
@@ -118,16 +116,17 @@ btn_fleche_droite.addEventListener('click', function(){
     }
     
     if(this.dataset.indexFleche < _elCarrousel__figure.children.length){
+        
        _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
-        indexFleche++;
         dernierIndex = this.dataset.indexFleche;
-    }else {
-        console.log("gegege");
-        this.dataset.indexFleche = 0;
         console.log(this.dataset.indexFleche);
+        
+    }else {
+        this.dataset.indexFleche = 0;
+        indexFleche = 0;
             _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
-            indexFleche++;
             
+            console.log(this.dataset.indexFleche);
         }
 
       
@@ -135,27 +134,31 @@ btn_fleche_droite.addEventListener('click', function(){
 
 
 btn_fleche_gauche.addEventListener('click', function(){
-    console.log("hello gauche");
-    ajouter_fleche_carrousel();
+    //console.log("hello gauche");
+    
+    btn_fleche_gauche.dataset.indexFleche = indexFleche-1;
     
     if(dernierIndex != -1){
         _elCarrousel__figure.children[dernierIndex].classList.remove("carrousel__figure__img--activer");
-        
     }
-    
-    if(this.dataset.indexFleche < _elCarrousel__figure.children.length){
-       _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
-        indexFleche--;
-        dernierIndex = this.dataset.indexFleche;
-    }else {
-        console.log("gegege");
-        this.dataset.indexFleche = 0;
-        console.log(this.dataset.indexFleche);
+
+        if (this.dataset.indexFleche <= _elCarrousel__figure.children.length-1){
+            console.log("hello");
             _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
+            console.log(this.dataset.indexFleche);
+            dernierIndex = this.dataset.indexFleche;
             indexFleche--;
+
+        }else {
+            console.log("else");
             
-        }
-    
+            console.log(this.dataset.indexFleche);
+                _elCarrousel__figure.children[this.dataset.indexFleche].classList.add("carrousel__figure__img--activer");
+                
+                dernierIndex = this.dataset.indexFleche;
+                
+            }
+        
 
 })
 

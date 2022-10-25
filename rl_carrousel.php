@@ -42,7 +42,7 @@ add_action('wp_enqueue_scripts', 'rlc_enqueue');
 
 function genere_boite(){
     $contenu="
-    <button class='btn_modal'>modal</button>
+    
     <div class='carrousel'>
         <button class='btn_close'>X</button>
         <button class='btn_fleche btn_fleche--gauche'><</button>
