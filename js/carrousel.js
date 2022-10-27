@@ -43,8 +43,12 @@
 
     }
 
+    /**
+     * ajoute les bouton radio dans le carrousel
+     * @param {img} elmImg - chaque img du carrousel
+     * @param {number} index - index de l'image 
+     */
     function ajouter_img_carrousel(elmImg){
-        //elmImg represent une image de la galerie
         elmImg.dataset.index = index;
         let _elCarrousel__figure__img = document.createElement("img");
         _elCarrousel__figure__img.setAttribute('src', elmImg.getAttribute("src"));
@@ -55,6 +59,8 @@
     }
     /**
      * ajoute les bouton radio dans le carrousel
+     * @param {number} index - index de l'image
+     * @param {number} dernierIndex - index de l'image d'avant quon enleve la classe activer
      */
     function ajouter_radio_carrousel(){
         let _elCarrousel__form__radio = document.createElement('input');
@@ -88,6 +94,9 @@
 
     /**
      * event listener sur le bouton droit pour faire derouler le carrousel
+     * @param {arrayInput[]} -tableau contenant les boutons radio 
+     * @param {number} indexFleche - index de l'image
+     * @param {number} dernierIndex - index de l'image d'avant quon enleve la classe activer
      * */
     btn_fleche_droite.addEventListener('click', function(){
             
@@ -120,6 +129,9 @@
 
     /**
      * event listener sur le bouton gauche pour faire derouler le carrousel
+     * @param {arrayInput[]} -tableau contenant les boutons radio 
+     * @param {number} indexFleche - index de l'image
+     * @param {number} dernierIndex - index de l'image d'avant quon enleve la classe activer
      * */
     btn_fleche_gauche.addEventListener('click', function(){
         let arrayInput = document.querySelectorAll('[name="carrousel__form__radio"]');
