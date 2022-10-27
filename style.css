@@ -94,8 +94,8 @@
 }
 
 .btn_close:hover {
-  color: rgb(245, 5, 5);
-  border-color: red;
+  color: rgb(210, 208, 208);
+  border-color: rgb(210, 208, 208);
 }
 
 .btn_fleche:hover {
