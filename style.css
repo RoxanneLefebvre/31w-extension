@@ -21,6 +21,9 @@
 }
 
 .btn_close {
+  border-color: white;
+  color: white;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,11 +72,8 @@
 }
 
 .btn_fleche {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  fill: white;
   position: absolute;
-  right: 0;
   top: 350px;
   margin: 20px;
   width: 2rem;
@@ -85,16 +85,19 @@
   left: 0;
   top: 275px;
   margin: 20px;
-  width: 2rem;
-  height: 2rem;
-  z-index: 3;
 }
 
 .btn_fleche--droite {
   right: 0;
   top: 275px;
   margin: 20px;
-  width: 2rem;
-  height: 2rem;
-  z-index: 3;
+}
+
+.btn_close:hover {
+  color: rgb(245, 5, 5);
+  border-color: red;
+}
+
+.btn_fleche:hover {
+  fill: rgb(132, 132, 132);
 }/*# sourceMappingURL=style.css.map */
